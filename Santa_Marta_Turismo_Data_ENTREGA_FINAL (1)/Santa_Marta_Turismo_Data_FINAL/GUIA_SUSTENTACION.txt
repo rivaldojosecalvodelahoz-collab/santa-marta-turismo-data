@@ -1,0 +1,68 @@
+GUÍA DE SUSTENTACIÓN – 10 MINUTOS
+SANTA MARTA TURISMO DATA
+
+0:00 – 1:20 | PROBLEMÁTICA
+
+Nuestro proyecto se llama Santa Marta Turismo Data. La problemática identificada es que la información de los lugares turísticos de Santa Marta suele encontrarse distribuida entre páginas, redes sociales y recomendaciones. Además, esos medios no siempre permiten analizar fácilmente qué lugares reciben más visitantes o cuáles tienen mejores calificaciones.
+
+1:20 – 2:20 | SOLUCIÓN
+
+La solución fue crear un sistema de información web que concentra información turística y además captura datos de visitas. Esto permite que los registros no se queden únicamente almacenados, sino que puedan utilizarse para generar información estadística.
+
+2:20 – 3:10 | TECNOLOGÍAS
+
+El sistema fue desarrollado en Python utilizando Flask. La información se almacena en SQLite. Las interfaces se construyeron con HTML y CSS, y todo el proyecto fue trabajado desde Visual Studio Code.
+
+3:10 – 4:30 | VISTAS
+
+Mostrar Inicio y Lugares.
+Explicar que el usuario puede consultar los sitios turísticos y filtrarlos por categoría.
+Abrir el detalle de un lugar y mostrar información, cantidad de visitantes y calificación promedio.
+
+4:30 – 6:00 | CAPTURA DE DATOS
+
+Abrir Registrar visita.
+Seleccionar un lugar, escribir fecha, cantidad de personas, calificación y comentario.
+Guardar el registro.
+Explicar que esa información queda almacenada en la tabla visitas.
+
+6:00 – 8:00 | ANÁLISIS DE DATOS
+
+Abrir Estadísticas inmediatamente después de registrar la visita.
+Mostrar:
+- visitantes por lugar;
+- visitantes por categoría;
+- visitantes por mes;
+- promedio de calificación.
+
+Explicar que los reportes no están escritos manualmente. Se calculan mediante consultas sobre la base de datos.
+
+8:00 – 9:00 | CRUD Y BASE DE DATOS
+
+Abrir Administrar.
+Explicar que existe un CRUD básico para crear, consultar, actualizar y eliminar lugares.
+Mencionar las tablas categorias, lugares y visitas.
+
+9:00 – 10:00 | CIERRE
+
+El proyecto integra cuatro procesos principales: captura de datos, almacenamiento, consulta y análisis. Aunque es una aplicación sencilla, demuestra cómo un sistema de información puede transformar datos de turismo en información útil para conocer las preferencias de los visitantes.
+
+POSIBLES PREGUNTAS DEL PROFESOR
+
+¿Por qué usaron SQLite?
+Porque es una base de datos sencilla, suficiente para un proyecto académico de este nivel y se integra directamente con Python.
+
+¿Qué hace Flask?
+Flask permite crear las rutas de la aplicación web y comunicar las páginas HTML con Python y la base de datos.
+
+¿Dónde están los datos?
+En el archivo turismo.db.
+
+¿Los gráficos son manuales?
+No. Los valores se generan a partir de consultas SQL sobre los registros almacenados.
+
+¿Qué pasa cuando se registra una nueva visita?
+Se inserta un nuevo registro en la tabla visitas y al abrir el módulo de estadísticas los resultados se vuelven a calcular.
+
+¿Qué relación tiene con Ingeniería de Datos?
+El sistema captura, almacena, organiza, consulta y resume datos para convertirlos en información útil.

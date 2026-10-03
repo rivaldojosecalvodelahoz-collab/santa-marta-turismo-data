@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema académico de información turística y análisis de datos de Santa Marta.">
+    <title>{% block title %}Santa Marta Turismo Data{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+<header class="topbar">
+    <div class="contenedor nav">
+        <a class="marca" href="{{ url_for('index') }}">
+            <span class="marca-icono">SM</span>
+            <span>Santa Marta Turismo Data</span>
+        </a>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('lugares') }}">Lugares</a>
+            <a href="{{ url_for('visitas') }}">Registrar visita</a>
+            <a href="{{ url_for('estadisticas') }}">Estadísticas</a>
+            <a href="{{ url_for('administrar') }}">Administrar</a>
+        </nav>
+    </div>
+</header>
+
+<main class="contenedor">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alerta {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <div class="contenedor">
+        Proyecto académico de Ingeniería de Datos · {{ current_year }}
+    </div>
+</footer>
+</body>
+</html>

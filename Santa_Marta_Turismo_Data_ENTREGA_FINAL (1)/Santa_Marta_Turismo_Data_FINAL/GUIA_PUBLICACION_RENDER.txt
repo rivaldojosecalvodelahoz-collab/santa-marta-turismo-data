@@ -1,0 +1,32 @@
+GUÍA PARA OBTENER UNA URL PÚBLICA CON RENDER
+
+El proyecto ya contiene render.yaml y requirements-deploy.txt.
+
+PASO 1
+Crear un repositorio nuevo en GitHub y subir el contenido de la carpeta
+Santa_Marta_Turismo_Data_FINAL. No subir la carpeta venv.
+
+PASO 2
+Entrar a https://render.com e iniciar sesión.
+
+PASO 3
+Elegir New > Blueprint o Web Service y conectar el repositorio de GitHub.
+
+PASO 4
+Render detectará el archivo render.yaml. Confirmar la creación del servicio.
+
+PASO 5
+Esperar la compilación. Cuando termine, Render mostrará una dirección similar a:
+https://santa-marta-turismo-data.onrender.com
+
+PASO 6
+Abrir esa URL y comprobar Inicio, Lugares, Registrar visita, Estadísticas y Administrar.
+
+PASO 7
+Copiar la URL generada y reemplazar en PROYECTO_CURSO.txt la línea:
+URL PÚBLICA
+Pendiente de asignar al momento de publicar el proyecto.
+
+NOTA
+La URL http://127.0.0.1:5000 es únicamente para usar el sistema desde el computador
+donde se está ejecutando Flask.

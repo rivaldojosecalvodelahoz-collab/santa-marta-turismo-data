@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Inicio | Santa Marta Turismo Data{% endblock %}
+{% block content %}
+<section class="hero">
+    <div>
+        <span class="etiqueta">Proyecto de Ingeniería de Datos</span>
+        <h1>Información turística convertida en datos útiles</h1>
+        <p>
+            Consulta lugares de Santa Marta, registra visitas y analiza las preferencias
+            de los visitantes mediante estadísticas generadas desde una base de datos.
+        </p>
+        <div class="acciones">
+            <a class="boton" href="{{ url_for('lugares') }}">Explorar lugares</a>
+            <a class="boton secundario" href="{{ url_for('estadisticas') }}">Ver estadísticas</a>
+        </div>
+    </div>
+    <div class="hero-card">
+        <div class="hero-sello">DATA</div>
+        <strong>Turismo + Ingeniería de Datos</strong>
+        <p>Captura, almacenamiento, consulta y análisis en una sola aplicación web.</p>
+    </div>
+</section>
+
+<section class="metricas">
+    <div class="metrica"><span>{{ resumen.lugares }}</span><small>Lugares registrados</small></div>
+    <div class="metrica"><span>{{ resumen.registros }}</span><small>Registros de visita</small></div>
+    <div class="metrica"><span>{{ resumen.visitantes }}</span><small>Visitantes registrados</small></div>
+    <div class="metrica"><span>{{ resumen.promedio or 0 }}</span><small>Calificación promedio</small></div>
+</section>
+
+<section>
+    <div class="encabezado-seccion">
+        <div>
+            <span class="etiqueta">Datos destacados</span>
+            <h2>Lugares con mayor movimiento</h2>
+        </div>
+        <a class="enlace" href="{{ url_for('lugares') }}">Ver todos →</a>
+    </div>
+
+    <div class="grid-3">
+        {% for lugar in destacados %}
+        <article class="card">
+            <div class="card-icon">
+                {{ "PLAYA" if lugar.nombre_categoria == "Playas" else "NATURALEZA" if lugar.nombre_categoria == "Naturaleza" else "HISTORIA" if lugar.nombre_categoria == "Historia" else "CULTURA" }}
+            </div>
+            <span class="badge">{{ lugar.nombre_categoria }}</span>
+            <h3>{{ lugar.nombre }}</h3>
+            <p>{{ lugar.descripcion }}</p>
+            <div class="card-info">
+                <span>{{ lugar.total_visitantes }} visitantes</span>
+                <span>{{ lugar.promedio or "N/D" }} / 5</span>
+            </div>
+            <a class="enlace" href="{{ url_for('detalle', id_lugar=lugar.id_lugar) }}">Ver detalle</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<section class="pagina-titulo">
+    <span class="etiqueta">Administración</span>
+    <h1>{{ titulo }}</h1>
+</section>
+
+<form class="panel formulario formulario-limitado" method="post">
+    <label for="nombre">Nombre *</label>
+    <input type="text" name="nombre" id="nombre" value="{{ lugar.nombre if lugar else '' }}" required>
+
+    <label for="id_categoria">Categoría *</label>
+    <select name="id_categoria" id="id_categoria" required>
+        {% for c in categorias %}
+        <option value="{{ c.id_categoria }}"
+            {% if lugar and lugar.id_categoria == c.id_categoria %}selected{% endif %}>
+            {{ c.nombre_categoria }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <label for="ubicacion">Ubicación *</label>
+    <input type="text" name="ubicacion" id="ubicacion" value="{{ lugar.ubicacion if lugar else '' }}" required>
+
+    <label for="descripcion">Descripción *</label>
+    <textarea name="descripcion" id="descripcion" rows="5" required>{{ lugar.descripcion if lugar else '' }}</textarea>
+
+    <label for="precio">Precio aproximado</label>
+    <input type="number" name="precio" id="precio" min="0" step="1000" value="{{ lugar.precio if lugar else 0 }}">
+
+    <div class="acciones">
+        <button class="boton" type="submit">Guardar</button>
+        <a class="boton secundario" href="{{ url_for('administrar') }}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

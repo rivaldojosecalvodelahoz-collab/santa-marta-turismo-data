@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ lugar.nombre }}{% endblock %}
+{% block content %}
+<section class="detalle-hero">
+    <div class="detalle-icon">{{ lugar.nombre_categoria|upper }}</div>
+    <div>
+        <span class="badge">{{ lugar.nombre_categoria }}</span>
+        <h1>{{ lugar.nombre }}</h1>
+        <p>{{ lugar.ubicacion }}</p>
+    </div>
+</section>
+
+<div class="grid-detalle">
+    <section class="panel">
+        <h2>Información del lugar</h2>
+        <p>{{ lugar.descripcion }}</p>
+        <div class="datos-detalle">
+            <div>
+                <strong>Precio aproximado</strong>
+                <span>${{ "{:,.0f}".format(lugar.precio) if lugar.precio else "Entrada libre / variable" }}</span>
+            </div>
+            <div><strong>Visitantes registrados</strong><span>{{ lugar.total_visitantes }}</span></div>
+            <div><strong>Calificación promedio</strong><span>{{ lugar.promedio or "Sin datos" }}</span></div>
+        </div>
+        <a class="boton" href="{{ url_for('visitas') }}">Registrar una visita</a>
+    </section>
+
+    <section class="panel">
+        <h2>Últimas opiniones</h2>
+        {% for op in opiniones %}
+        <div class="opinion">
+            <strong>{{ op.fecha }} · {{ op.calificacion }}/5</strong>
+            <p>{{ op.comentario or "Sin comentario." }}</p>
+            <small>{{ op.cantidad_personas }} persona(s)</small>
+        </div>
+        {% else %}
+        <p>Todavía no hay opiniones registradas.</p>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

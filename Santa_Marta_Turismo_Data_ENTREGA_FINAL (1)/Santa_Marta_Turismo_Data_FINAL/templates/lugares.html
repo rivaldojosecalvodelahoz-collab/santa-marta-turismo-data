@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Lugares turísticos{% endblock %}
+{% block content %}
+<section class="pagina-titulo">
+    <span class="etiqueta">Consulta de datos</span>
+    <h1>Lugares turísticos</h1>
+    <p>Información organizada de los lugares registrados en el sistema.</p>
+</section>
+
+<form class="filtro panel-suave" method="get">
+    <label for="categoria">Filtrar por categoría</label>
+    <select name="categoria" id="categoria" onchange="this.form.submit()">
+        <option value="">Todas las categorías</option>
+        {% for c in categorias %}
+        <option value="{{ c.id_categoria }}" {% if categoria == c.id_categoria %}selected{% endif %}>
+            {{ c.nombre_categoria }}
+        </option>
+        {% endfor %}
+    </select>
+</form>
+
+<div class="grid-3">
+    {% for lugar in lugares %}
+    <article class="card">
+        <div class="card-icon">{{ lugar.nombre_categoria|upper }}</div>
+        <span class="badge">{{ lugar.nombre_categoria }}</span>
+        <h3>{{ lugar.nombre }}</h3>
+        <p class="ubicacion">{{ lugar.ubicacion }}</p>
+        <p>{{ lugar.descripcion }}</p>
+        <div class="card-info">
+            <span>{{ lugar.total_visitantes }} visitantes</span>
+            <span>{{ lugar.promedio or "N/D" }} / 5</span>
+        </div>
+        <a class="boton pequeno" href="{{ url_for('detalle', id_lugar=lugar.id_lugar) }}">Ver detalle</a>
+    </article>
+    {% else %}
+    <div class="panel">No hay lugares registrados en esta categoría.</div>
+    {% endfor %}
+</div>
+{% endblock %}

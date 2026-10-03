@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Estadísticas{% endblock %}
+{% block content %}
+<section class="pagina-titulo">
+    <span class="etiqueta">Análisis de datos</span>
+    <h1>Panel de estadísticas</h1>
+    <p>Todos los resultados se calculan directamente con los registros almacenados en SQLite.</p>
+</section>
+
+<section class="metricas metricas-3">
+    <div class="metrica"><span>{{ indicadores.visitantes }}</span><small>Visitantes registrados</small></div>
+    <div class="metrica"><span>{{ indicadores.registros }}</span><small>Registros de visita</small></div>
+    <div class="metrica"><span>{{ indicadores.promedio or 0 }}</span><small>Calificación promedio</small></div>
+</section>
+
+<div class="grid-graficos">
+    <section class="panel">
+        <div class="titulo-reporte">
+            <div><small>REPORTE 1</small><h2>Visitantes por lugar</h2></div>
+        </div>
+        <div class="barras">
+            {% for fila in por_lugar %}
+            <div class="barra-fila">
+                <div class="barra-meta"><span>{{ fila.nombre }}</span><strong>{{ fila.total }}</strong></div>
+                <div class="barra-fondo"><div class="barra-relleno" style="width: {{ fila.porcentaje }}%"></div></div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="titulo-reporte">
+            <div><small>REPORTE 2</small><h2>Visitantes por categoría</h2></div>
+        </div>
+        <div class="barras">
+            {% for fila in por_categoria %}
+            <div class="barra-fila">
+                <div class="barra-meta"><span>{{ fila.categoria }}</span><strong>{{ fila.total }}</strong></div>
+                <div class="barra-fondo"><div class="barra-relleno alternativa" style="width: {{ fila.porcentaje }}%"></div></div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="titulo-reporte">
+            <div><small>REPORTE 3</small><h2>Visitantes por mes</h2></div>
+        </div>
+        <div class="barras">
+            {% for fila in por_mes %}
+            <div class="barra-fila">
+                <div class="barra-meta"><span>{{ fila.mes }}</span><strong>{{ fila.total }}</strong></div>
+                <div class="barra-fondo"><div class="barra-relleno tercera" style="width: {{ fila.porcentaje }}%"></div></div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="titulo-reporte">
+            <div><small>REPORTE 4</small><h2>Promedio de calificación</h2></div>
+        </div>
+        <div class="tabla-contenedor">
+            <table>
+                <thead><tr><th>Lugar</th><th>Promedio</th><th>Registros</th></tr></thead>
+                <tbody>
+                    {% for fila in calificaciones %}
+                    <tr>
+                        <td>{{ fila.nombre }}</td>
+                        <td>{{ fila.promedio or "N/D" }}</td>
+                        <td>{{ fila.cantidad }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<section class="panel nota-tecnica">
+    <strong>¿Qué demuestra este módulo?</strong>
+    <p>Los datos capturados en el formulario se almacenan en la base de datos y luego se agrupan mediante consultas SQL para convertirlos en información útil.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+PROYECTO DE CURSO – INGENIERÍA DE DATOS
+
+Nombre del proyecto
+Santa Marta Turismo Data
+
+PROBLEMÁTICA
+
+Santa Marta cuenta con una gran variedad de lugares turísticos, entre ellos playas, parques naturales, sitios históricos y espacios culturales. Sin embargo, para una persona que visita la ciudad por primera vez puede ser difícil encontrar en un mismo lugar información organizada sobre los diferentes sitios que puede conocer. Normalmente, los turistas deben consultar varias páginas, redes sociales o recomendaciones individuales para conocer qué lugares existen, dónde están ubicados, cuánto pueden costar algunas actividades y qué tipo de experiencia ofrece cada sitio.
+
+Esta situación también dificulta conocer cuáles lugares son los más visitados o mejor valorados por los turistas. Al no existir una herramienta sencilla que almacene y organice estos datos, se pierde la posibilidad de analizar las preferencias de los visitantes. Por esta razón, se propone desarrollar un sistema de información web que permita consultar diferentes lugares turísticos de Santa Marta y registrar información sobre visitas y calificaciones, de manera que también se puedan generar estadísticas que ayuden a identificar los sitios con mayor interés turístico.
+
+DESCRIPCIÓN DE LA HERRAMIENTA PROPUESTA
+
+Santa Marta Turismo Data es una aplicación web desarrollada en Python que permite consultar información sobre diferentes lugares turísticos de Santa Marta. Cada lugar contiene datos como nombre, categoría, ubicación, descripción, precio aproximado y calificación. El sistema permite registrar visitas realizadas por los usuarios y utiliza dichos registros para generar reportes estadísticos sobre los lugares más visitados, las categorías con mayor número de visitantes, las visitas por mes y el promedio de calificación de cada sitio. La aplicación cuenta con una interfaz sencilla y una base de datos SQLite que permite almacenar, consultar y analizar la información.
+
+URL DE ACCESO LOCAL
+http://127.0.0.1:5000
+
+URL PÚBLICA
+Pendiente de asignar al momento de publicar el proyecto.
+
+HERRAMIENTAS UTILIZADAS
+Python, Flask, SQLite, HTML, CSS y Visual Studio Code.
+
+VISTAS DESARROLLADAS
+1. Inicio.
+2. Lugares turísticos.
+3. Detalle del lugar.
+4. Registro de visitas.
+5. Estadísticas.
+6. Administración de lugares.
+7. Crear o editar lugar.
+
+REPORTES ESTADÍSTICOS
+1. Visitantes por lugar.
+2. Visitantes por categoría.
+3. Visitantes por mes.
+4. Promedio de calificación por lugar.
+5. Indicadores generales.
+
+BASE DE DATOS
+El sistema usa tres tablas principales: categorias, lugares y visitas. Una categoría puede contener varios lugares y cada lugar puede almacenar múltiples registros de visita.

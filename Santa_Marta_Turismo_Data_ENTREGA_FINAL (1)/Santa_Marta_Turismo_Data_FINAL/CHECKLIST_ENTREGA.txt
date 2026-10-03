@@ -1,0 +1,28 @@
+CHECKLIST FINAL DE ENTREGA
+
+[OK] Problemática relacionada con turismo.
+[OK] Problemática escrita en dos párrafos.
+[OK] Descripción de la herramienta en un párrafo.
+[OK] Aplicación web funcional.
+[OK] Python como lenguaje principal.
+[OK] Proyecto preparado para Visual Studio Code.
+[OK] Más de cinco vistas.
+[OK] Base de datos SQLite.
+[OK] Registro de visitas.
+[OK] CRUD de lugares.
+[OK] Reportes estadísticos.
+[OK] Datos iniciales para demostrar el sistema.
+[OK] Ejecución local.
+[OK] Script de inicio para Windows.
+[OK] Guía de sustentación de 10 minutos.
+[OK] Archivos para despliegue web.
+[PENDIENTE ÚNICAMENTE] Obtener una URL pública si el profesor exige abrir el sistema desde Internet.
+
+ANTES DE PRESENTAR
+
+1. Ejecutar INICIAR_PROYECTO.bat.
+2. Abrir http://127.0.0.1:5000.
+3. Registrar una visita de prueba.
+4. Abrir Estadísticas y mostrar el cambio.
+5. Crear un lugar desde Administrar si se quiere demostrar el CRUD.
+6. No cerrar la ventana del servidor durante la sustentación.

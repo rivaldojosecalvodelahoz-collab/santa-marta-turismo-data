@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Registrar visita{% endblock %}
+{% block content %}
+<section class="pagina-titulo">
+    <span class="etiqueta">Captura de datos</span>
+    <h1>Registrar una visita</h1>
+    <p>Cada registro alimenta automáticamente los reportes estadísticos.</p>
+</section>
+
+<div class="grid-form">
+    <form class="panel formulario" method="post">
+        <label for="id_lugar">Lugar turístico *</label>
+        <select name="id_lugar" id="id_lugar" required>
+            <option value="">Selecciona un lugar</option>
+            {% for lugar in lugares %}
+            <option value="{{ lugar.id_lugar }}">{{ lugar.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="fecha">Fecha de visita *</label>
+        <input type="date" name="fecha" id="fecha" required>
+
+        <label for="cantidad_personas">Cantidad de personas *</label>
+        <input type="number" name="cantidad_personas" id="cantidad_personas" min="1" value="1" required>
+
+        <label for="calificacion">Calificación *</label>
+        <select name="calificacion" id="calificacion" required>
+            <option value="5">5 - Excelente</option>
+            <option value="4">4 - Muy buena</option>
+            <option value="3">3 - Buena</option>
+            <option value="2">2 - Regular</option>
+            <option value="1">1 - Mala</option>
+        </select>
+
+        <label for="comentario">Comentario</label>
+        <textarea name="comentario" id="comentario" rows="4" placeholder="Comentario opcional"></textarea>
+
+        <button class="boton" type="submit">Guardar visita</button>
+    </form>
+
+    <section class="panel">
+        <h2>Últimos registros</h2>
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr><th>Fecha</th><th>Lugar</th><th>Personas</th><th>Calificación</th></tr>
+                </thead>
+                <tbody>
+                    {% for v in ultimas %}
+                    <tr>
+                        <td>{{ v.fecha }}</td>
+                        <td>{{ v.nombre }}</td>
+                        <td>{{ v.cantidad_personas }}</td>
+                        <td>{{ v.calificacion }}/5</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+{% endblock %}
